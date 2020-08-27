@@ -1,13 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { createStore, StoreProvider, action } from 'easy-peasy';
 import './index.css';
 import App from './App';
+
 import * as serviceWorker from './serviceWorker';
 
+const walletStore = {
+  address: '',
+  balance: '',
+  isConnected: '',
+  addWallet: action((state, payload) => {
+    state.address = payload.address;
+    state.balance = payload.balance;
+  }),
+  setConnected: action((state, payload) => {
+    return {
+      ...state,
+      isConnected: payload,
+    };
+  }),
+};
+
+const store = createStore(walletStore);
+
 ReactDOM.render(
-  <React.StrictMode>
+  <StoreProvider store={store}>
     <App />
-  </React.StrictMode>,
+  </StoreProvider>,
+
   document.getElementById('root')
 );
 
