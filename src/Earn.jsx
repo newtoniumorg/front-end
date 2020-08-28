@@ -105,6 +105,7 @@ function Earn() {
                   if (!data.isHarvestDay) {
                     toast.error('This is not a harvest day, grow the apples!');
                     setIsDisabled(false);
+                    setLoadingClaim(false);
                     return;
                   }
                   firebase
