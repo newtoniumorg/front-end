@@ -7,6 +7,7 @@ import firebase from './firebase';
 
 // import { abi } from './abi';
 import logo from './assets/output.png';
+import metamask from './assets/metamask.png';
 
 const CONTRACT = '0xAE9CBE6eBf72A51c9Fcea3830485614486318Fd4';
 
@@ -95,9 +96,8 @@ function Earn() {
                 .then((data) => {
                   //console.log(data);
                   if (data.error) {
-                    toast.error(
-                      'Transaction failed, might be too liitle planted seed :('
-                    );
+                    // console.log(data)
+                    toast.error('Gas fees reach the maximum limit!');
                     setIsDisabled(false);
                     setLoadingClaim(false);
                     return;
@@ -159,11 +159,7 @@ function Earn() {
             <polyline points="8 13 4 17 8 21" />
             <line x1="4" y1="17" x2="13" y2="17" />
           </svg>
-          <img
-            src="https://peerol.com/user/pages/03.MetaMask/metamask_logo_250x.png"
-            alt="metamask-logo"
-            className="metamask"
-          />
+          <img src={metamask} alt="metamask-logo" className="metamask" />
         </div>
 
         <button className="btn-connect" onClick={openMetaMask}>

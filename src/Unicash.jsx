@@ -1,6 +1,8 @@
 import React from 'react';
 
 import logo from './assets/output.png';
+import ether from './assets/ether.png';
+
 function Unicash() {
   return (
     <div className="unicash">
@@ -25,11 +27,7 @@ function Unicash() {
             <polyline points="8 13 4 17 8 21" />
             <line x1="4" y1="17" x2="13" y2="17" />
           </svg>
-          <img
-            src="https://ethereum.org/static/6b935ac0e6194247347855dc3d328e83/294fc/ethereum-icon-black.png"
-            alt="metamask-logo"
-            className="metamask ether"
-          />
+          <img src={ether} alt="ether-logo" className="metamask ether" />
         </div>
         <a
           href="https://uniswap.info/token/0xae9cbe6ebf72a51c9fcea3830485614486318fd4"
